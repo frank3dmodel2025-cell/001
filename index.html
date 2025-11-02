@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Visor 3D GLB | WebApp</title>
+  <link href="styles.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://esm.sh/three@0.160.0",
+      "three/addons/": "https://esm.sh/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="dot"></span>
+      <span class="title">Visor 3D</span>
+    </div>
+    <div class="actions">
+      <button id="btn-autorotate" class="btn">Auto-rotar</button>
+      <button id="btn-fit" class="btn">Ajustar</button>
+      <button id="btn-zoom-in" class="btn">+</button>
+      <button id="btn-zoom-out" class="btn">−</button>
+      <button id="btn-lock-model" class="btn">Fijar modelo</button>
+      <button id="btn-bg-camera" class="btn">Fondo: cámara</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="viewer">
+      <canvas id="viewport"></canvas>
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Cargando modelo…</p>
+      </div>
+    </section>
+
+    <section class="carousel-wrap">
+      <div class="carousel-header">
+        <h2>Modelos</h2>
+        <div class="carousel-nav">
+          <button id="carousel-prev" class="btn ghost" aria-label="Anterior">◀</button>
+          <button id="carousel-next" class="btn ghost" aria-label="Siguiente">▶</button>
+        </div>
+      </div>
+      <div id="carousel" class="carousel" tabindex="0" aria-label="Carrusel de modelos"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Arrastra con el mouse para rotar. Rueda para zoom. Doble clic para centrar.</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
